@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: black;
+            color: #dad9d9;
+        }
+
+        .custom-container.dark-mode {
+            background-color: #2d3033; /* Change the background color for .custom-container in dark mode */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Update the box-shadow color accordingly */
+        }
+
+        /* Container Styles */
+        .custom-container {
+            background-color: #f1f3f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            width: 298px;
+        }
+
+        /* Text Box Styles */
+        .text-box {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: black; /* Default color in normal mode */
+            background-color: #fffdfd; /* Default background color in dark mode */
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Circular Button Styles */
+        .circular-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fffdfd; /* Default background color in normal mode */
+            color: black; /* Default color in normal mode */
+            border: none;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-radius 0.3s, transform 0.2s;
+        }
+
+        .circular-button.dark-mode {
+            background-color: #202124; /* Default background color in dark mode */
+            color: white; /* Default color in dark mode */
+        }
+
+        .circular-button:hover {
+            border-radius: 8px; /* Change to square with circular edges on hover */
+            background-color: #dcbcf7;
+        }
+
+        .circular-button:active {
+            transform: scale(0.95); /* Slight scale down on button press */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Dark Mode Switch -->
+<div class="dark-mode-switch-container">
+    <label class="dark-mode-switch-label" for="darkModeSwitch">Dark Mode</label>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+    </div>
+</div>
+
+
+<!-- Container -->
+<div class="container custom-container">
+    <!-- Text Box -->
+    <input type="text" class="text-box" placeholder="Enter text">
+
+    <!-- Circular Buttons -->
+    <button class="circular-button">1</button>
+    <button class="circular-button">2</button>
+    <button class="circular-button">3</button>
+    <button class="circular-button">4</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Dark Mode Switch
+    const darkModeSwitch = document.getElementById('darkModeSwitch');
+    const body = document.body;
+    const customContainer = document.querySelector('.custom-container');
+
+    darkModeSwitch.addEventListener('change', () => {
+        const isDarkMode = darkModeSwitch.checked;
+
+        body.classList.toggle('dark-mode', isDarkMode);
+        customContainer.classList.toggle('dark-mode', isDarkMode);
+    });
+</script>
+
+</body>
+</html>
